@@ -44,6 +44,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
+  padding-block: 1.1rem;
 }
 
 picture > img {
@@ -109,7 +111,7 @@ picture > img {
   color: var(--Rose-900);
   font-size: 2.5rem;
   padding-inline-start: 1rem;
-  padding-block-start: 1.1rem;
+  /* padding-block-start: 1.1rem; */
   padding-block-end: 1.6rem;
 }
 
