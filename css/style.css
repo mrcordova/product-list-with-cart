@@ -34,16 +34,17 @@ body {
   min-height: 100vh;
   min-height: 100svh;
   display: grid;
-  place-content: center;
+  /* place-content: center; */
   background-color: var(--Rose-100);
 }
 
 main {
   height: 100%;
+  /* width: min-content; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  /* justify-content: center; */
+  align-items: center;
 
   padding-block: 1.1rem;
 }
@@ -80,16 +81,27 @@ picture > img {
 .img-container {
   position: relative;
 }
+div:has(.cards) {
+  flex: 1;
+  display: grid;
+  justify-content: center;
+}
 .cards {
   display: grid;
-  /* grid-template-columns: fit-content; */
+  grid-template-columns: repeat(auto-fit, minmax(20.5rem, max-content));
+  grid-auto-rows: auto;
   gap: 1.4rem;
-  padding-inline: 1rem;
+  height: max-content;
+  /* justify-content: center; */
+  /* width: max-content; */
+  /* width: min-content; */
+  /* padding-inline: 1rem; */
 }
 
 .card {
   display: flex;
   flex-direction: column;
+  inline-size: 20.5rem;
   /* width: fit-content(); */
 }
 .category {
@@ -110,7 +122,8 @@ picture > img {
 .cards-heading {
   color: var(--Rose-900);
   font-size: 2.5rem;
-  padding-inline-start: 1rem;
+  /* width: 100%; */
+  /* padding-inline-start: 1rem; */
   /* padding-block-start: 1.1rem; */
   padding-block-end: 1.6rem;
 }
@@ -134,14 +147,15 @@ picture > img {
 @media (min-width: 50rem) {
   main {
     flex-direction: row;
-    align-items: baseline;
+    align-items: flex-start;
   }
 
   .cart-container {
     align-self: baseline;
   }
   .cards {
-    grid-template-columns: repeat(3, max-content);
-    grid-template-rows: repeat(3, max-content);
+    grid-template-columns: repeat(3, minmax(min-content, max-content));
+    /* grid-template-columns: repeat(3, max-content); */
+    /* grid-template-rows: repeat(3, minmax(min-content, max-content)); */
   }
 }
