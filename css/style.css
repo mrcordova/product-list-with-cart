@@ -84,6 +84,8 @@ picture > img {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   padding-inline: 1rem;
 }
 .category {
