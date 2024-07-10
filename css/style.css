@@ -65,7 +65,7 @@ picture > img {
   left: 0;
   right: 0;
   top: 0;
-  bottom: -1.5rem;
+  bottom: -1.4rem;
   margin-inline: auto;
   margin-block-start: auto;
 
@@ -83,6 +83,24 @@ picture > img {
   display: grid;
 }
 
+.card {
+  padding-inline: 1rem;
+}
+.category {
+  color: var(--Rose-300);
+  font-size: 0.85rem;
+  padding-block-start: 2.4rem;
+}
+.card-price {
+  color: var(--Red);
+  display: flex;
+  padding-block-start: 0.2rem;
+}
+.card-title {
+  color: var(--Rose-900);
+  font-size: 0.94rem;
+  padding-block-start: 0.1rem;
+}
 .cards-heading {
   color: var(--Rose-900);
   font-size: 2.5rem;
@@ -92,5 +110,10 @@ picture > img {
   main {
     flex-direction: row;
     align-items: baseline;
+  }
+
+  .cards {
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: repeat(3, max-content);
   }
 }
