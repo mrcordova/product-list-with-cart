@@ -42,7 +42,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   background-color: var(--Rose-50);
 }
@@ -81,6 +81,8 @@ picture > img {
 }
 .cards {
   display: grid;
+
+  gap: 1.4rem;
 }
 
 .card {
@@ -106,9 +108,12 @@ picture > img {
 .cards-heading {
   color: var(--Rose-900);
   font-size: 2.5rem;
+  padding-inline-start: 1rem;
+  padding-block-start: 1.1rem;
+  padding-block-end: 1.6rem;
 }
 
-@media (min-width: 30rem) {
+@media (min-width: 50rem) {
   main {
     flex-direction: row;
     align-items: baseline;
