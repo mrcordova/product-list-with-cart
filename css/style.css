@@ -241,6 +241,7 @@ div:has(.cards) {
 .list-item {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid var(--Rose-100);
 }
 .item-info {
   display: flex;
@@ -248,6 +249,21 @@ div:has(.cards) {
 }
 .item-prices {
   display: flex;
+}
+.remove-item-btn {
+  align-self: center;
+  height: max-content;
+  padding: 0.15rem;
+  border-radius: 50%;
+  border: 2px solid var(--Rose-300);
+}
+
+.remove-item-btn:hover {
+  cursor: pointer;
+  border-color: var(--Rose-900);
+}
+.remove-item-btn:hover > svg > path {
+  fill: var(--Rose-900);
 }
 ul > li {
   list-style: none;
