@@ -208,6 +208,14 @@ div:has(.cards) {
 .carbon-container {
   display: flex;
   justify-content: center;
+  background-color: var(--Rose-100);
+  border-radius: 0.2rem;
+  padding-block: 0.5rem;
+  gap: 0.4rem;
+}
+
+.carbon-container > p {
+  font-size: 0.85rem;
 }
 .confirm-btn {
   width: 100%;
