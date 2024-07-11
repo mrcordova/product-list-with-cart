@@ -71,11 +71,23 @@
                   src="./assets/images/image-creme-brulee-mobile.jpg"
                   alt=" two deserts with spoons on a dish" />
               </picture>
-              <button class="add-cart-container red-hat-text-600">
+              <!-- <button class="add-cart-container red-hat-text-600">
                 <img
                   src="./assets/images/icon-add-to-cart.svg"
                   alt="shopping cart with plus sign on top" />
                 <p>Add to Cart</p>
+              </button> -->
+
+              <button class="add-card-counter red-hat-text-600">
+                <img
+                  class="minus"
+                  src="./assets/images/icon-decrement-quantity.svg"
+                  alt="minus" />
+                <p>1</p>
+                <img
+                  class="plus"
+                  src="./assets/images/icon-increment-quantity.svg"
+                  alt="plus" />
               </button>
             </div>
             <p class="category red-hat-text-600">Crème Brûlée</p>
@@ -280,7 +292,10 @@
       </div>
 
       <div class="cart-container">
-        <p class="cart-amount red-hat-text-700">Your Cart (0)</p>
+        <p class="cart-amount red-hat-text-700">
+          Your Cart
+          <span>(0)</span>
+        </p>
         <img src="./assets/images/illustration-empty-cart.svg" alt="" />
         <p class="cart-message red-hat-text-700">
           Your added items will appear here

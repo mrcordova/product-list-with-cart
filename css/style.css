@@ -59,7 +59,6 @@ picture > img {
 .add-cart-container {
   background-color: hsl(45, 100%, 99%);
   border: 1px solid var(--Rose-500);
-  content: "";
   display: flex;
   align-items: center;
   width: max-content;
@@ -77,6 +76,44 @@ picture > img {
   font-size: 0.88rem;
   padding-inline: 1.6rem;
   padding-block: 0.7rem;
+}
+.add-card-counter {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: max-content;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-radius: 1.5rem;
+  bottom: -1.4rem;
+  margin-inline: auto;
+  margin-block-start: auto;
+  background-color: var(--Red);
+  color: hsl(45, 100%, 99%);
+  padding-inline: 0.8rem;
+  padding-block: 0.6rem;
+  bottom: -1.2rem;
+  gap: 2.9rem;
+  align-items: center;
+}
+
+.minus {
+  border: 1px solid hsl(45, 100%, 99%);
+  padding-block: 0.4rem;
+  padding-inline: 0.2rem;
+  border-radius: 50%;
+}
+
+.plus {
+  border: 1px solid hsl(45, 100%, 99%);
+  border-radius: 50%;
+  padding: 0.2rem;
+}
+
+:is(.plus, .minus):hover {
+  cursor: pointer;
 }
 
 .add-cart-container:hover {
