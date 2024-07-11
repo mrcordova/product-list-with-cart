@@ -79,6 +79,12 @@ picture > img {
   padding-block: 0.7rem;
 }
 
+.add-cart-container:hover {
+  cursor: pointer;
+  border-color: var(--Red);
+  color: var(--Red);
+}
+
 .img-container {
   position: relative;
 }
