@@ -5,10 +5,14 @@ const addToCartBtns = document.querySelectorAll(".add-cart-container");
 const plusBtns = document.querySelectorAll(".plus");
 const minusBtns = document.querySelectorAll(".minus");
 const totalItemsInCart = document.querySelector("span[data-total-items");
+const cartMessage = document.querySelector(".cart-message");
+const orderListDiv = document.querySelector(".order-list-container");
 
 console.log(data);
+// console.log(orderListDiv.textContent);
 
 const changeAddCartBtn = (e) => {
+  let firstItem = true;
   const AddItemBtn =
     e.currentTarget.parentElement.querySelector(".add-cart-counter");
 
@@ -16,6 +20,12 @@ const changeAddCartBtn = (e) => {
 
   AddItemBtn.classList.toggle("hide");
   updateItemsInCart(1);
+  changeCartView(firstItem);
+};
+
+const changeCartView = (firstItem) => {
+  cartMessage.classList.toggle("hide", firstItem);
+  orderListDiv.classList.toggle("hide", !firstItem);
 };
 
 const updateAmount = (e) => {
