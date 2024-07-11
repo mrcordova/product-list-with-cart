@@ -24,6 +24,7 @@ const updateAmount = (e) => {
   let updatedAmount = parseInt(amount.textContent) + newVal;
   if (updatedAmount <= 0) {
     updatedAmount = 1;
+    newVal = 0;
   }
   amount.textContent = updatedAmount;
   updateItemsInCart(newVal);
