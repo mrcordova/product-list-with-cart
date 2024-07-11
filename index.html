@@ -517,24 +517,26 @@
           Your added items will appear here
         </p> -->
         <div class="order-list-container">
-          <ul>
-            <li>
-              <div>
+          <ul class="order-list">
+            <li class="list-item">
+              <div class="item-info">
                 <p>Classic Tiramisu</p>
-                <div>
+                <div class="item-prices">
                   <p>1x</p>
                   <p>@ $5.50</p>
                   <p>$5.50</p>
                 </div>
               </div>
-              <img src="./assets/images/icon-remove-item.svg" alt="x" />
+              <button>
+                <img src="./assets/images/icon-remove-item.svg" alt="x" />
+              </button>
             </li>
           </ul>
-          <div>
+          <div class="order-total-container">
             <p>Order Total</p>
             <h3>$46.50</h3>
           </div>
-          <div>
+          <div class="carbon-container">
             <img
               src="./assets/images/icon-carbon-neutral.svg"
               alt="green tree" />
@@ -544,7 +546,7 @@
               delivery
             </p>
           </div>
-          <button>Confirm Order</button>
+          <button class="confirm-btn red-hat-text-600">Confirm Order</button>
         </div>
       </div>
     </main>

@@ -192,18 +192,57 @@ div:has(.cards) {
 .cart-container > img {
   align-self: center;
   padding-block-end: 1rem;
+  padding-block-start: 2.3rem;
 }
 .cart-amount {
   align-self: flex-start;
   color: var(--Red);
 
   font-size: 1.5rem;
-  padding-block-end: 2.3rem;
 }
 .cart-message {
   color: var(--Rose-500);
   font-size: 0.83rem;
   align-self: center;
+}
+.carbon-container {
+  display: flex;
+  justify-content: center;
+}
+.confirm-btn {
+  width: 100%;
+  text-align: center;
+  background-color: var(--Red);
+  color: var(--Rose-50);
+  padding-block: 0.9rem;
+  border-radius: 3rem;
+}
+
+.confirm-btn:hover {
+  cursor: pointer;
+  background-color: hsl(15, 87%, 31%);
+}
+.order-list {
+  padding: 0;
+}
+
+.order-total-container {
+  display: flex;
+  justify-content: space-between;
+}
+.list-item {
+  display: flex;
+  justify-content: space-between;
+}
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+.item-prices {
+  display: flex;
+}
+ul > li {
+  list-style: none;
 }
 @media (min-width: 50rem) {
   main {
