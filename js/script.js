@@ -1,9 +1,12 @@
 const dataResponse = await fetch("http://127.0.0.1:5500/data.json"); // for quokka testing
 // const dataResponse = await fetch("../data.json");  for final live website
 const data = await dataResponse.json();
+const addToCartBtns = document.querySelectorAll(".add-cart-container");
 const plusBtns = document.querySelectorAll(".plus");
 const minusBtns = document.querySelectorAll(".minus");
 const totalItemsInCart = document.querySelector("span[data-total-items");
+
+const changeAddCartBtn = (e) => {};
 
 const updateAmount = (e) => {
   const amount = e.currentTarget.parentElement.querySelector(".amount");
@@ -34,4 +37,8 @@ for (const plusBtn of plusBtns) {
 }
 for (const minusBtn of minusBtns) {
   minusBtn.addEventListener("click", updateAmount);
+}
+
+for (const addToCartBtn of addToCartBtns) {
+  addToCartBtn.addEventListener("click", changeAddCartBtn);
 }
