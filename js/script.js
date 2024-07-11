@@ -6,6 +6,8 @@ const plusBtns = document.querySelectorAll(".plus");
 const minusBtns = document.querySelectorAll(".minus");
 const totalItemsInCart = document.querySelector("span[data-total-items");
 
+console.log(data);
+
 const changeAddCartBtn = (e) => {
   const AddItemBtn =
     e.currentTarget.parentElement.querySelector(".add-cart-counter");
@@ -32,7 +34,7 @@ const updateItemsInCart = (val) => {
   // console.log(val + oldAmount ?? 0);
   totalItemsInCart.setAttribute(
     "data-total-items",
-    oldAmount + val > 0 ? oldAmount + val : 0
+    oldAmount + val > 0 ? oldAmount + val : 1
   );
 
   totalItemsInCart.textContent = `(${totalItemsInCart.getAttribute(
