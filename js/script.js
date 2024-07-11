@@ -6,7 +6,15 @@ const plusBtns = document.querySelectorAll(".plus");
 const minusBtns = document.querySelectorAll(".minus");
 const totalItemsInCart = document.querySelector("span[data-total-items");
 
-const changeAddCartBtn = (e) => {};
+const changeAddCartBtn = (e) => {
+  const AddItemBtn =
+    e.currentTarget.parentElement.querySelector(".add-cart-counter");
+
+  e.currentTarget.classList.toggle("hide");
+
+  AddItemBtn.classList.toggle("hide");
+  updateItemsInCart(1);
+};
 
 const updateAmount = (e) => {
   const amount = e.currentTarget.parentElement.querySelector(".amount");
@@ -21,7 +29,7 @@ const updateAmount = (e) => {
 
 const updateItemsInCart = (val) => {
   const oldAmount = parseInt(totalItemsInCart.getAttribute("data-total-items"));
-  console.log(val + oldAmount ?? 0);
+  // console.log(val + oldAmount ?? 0);
   totalItemsInCart.setAttribute(
     "data-total-items",
     oldAmount + val > 0 ? oldAmount + val : 0

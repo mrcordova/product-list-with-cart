@@ -73,7 +73,7 @@ picture > img {
   padding-inline: 1.6rem;
   padding-block: 0.7rem;
 }
-.add-card-counter {
+.add-cart-counter {
   display: flex;
   align-items: center;
   width: max-content;
@@ -94,7 +94,9 @@ picture > img {
   gap: 2.9rem;
   align-items: center;
 }
-
+.hide {
+  display: none;
+}
 /* span[data-total-items]::before {
   content: "(" attr(data-total-items) ")";
 } */
