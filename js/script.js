@@ -42,8 +42,8 @@ const removeItem = (e) => {
   const oldAmount = parseInt(totalItemsInCart.getAttribute("data-total-items"));
 
   updateItemsInCart(itemQuantity);
-  // console.log(oldAmount + itemQuantity);
-  changeCartView(oldAmount + itemQuantity);
+
+  changeCartView(oldAmount + itemQuantity > 0 ? true : false);
 };
 
 const changeCartView = (firstItem) => {
@@ -59,6 +59,9 @@ const updateAmount = (e) => {
     updatedAmount = 1;
     newVal = -1;
     changeBtn(e);
+    changeCartView(
+      parseInt(totalItemsInCart.getAttribute("data-total-items")) + newVal
+    );
   }
   amount.textContent = updatedAmount;
   updateItemsInCart(newVal);
