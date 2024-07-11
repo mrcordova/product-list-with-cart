@@ -57,7 +57,7 @@ picture > img {
   border-radius: 0.5rem;
 }
 .add-cart-container {
-  background-color: hsl(45, 100%, 99%);
+  background-color: var(--Rose-50);
   border: 1px solid var(--Rose-500);
   display: flex;
   align-items: center;
@@ -91,29 +91,33 @@ picture > img {
   margin-inline: auto;
   margin-block-start: auto;
   background-color: var(--Red);
-  color: hsl(45, 100%, 99%);
+  color: var(--Rose-50);
   padding-inline: 0.8rem;
   padding-block: 0.6rem;
   bottom: -1.2rem;
   gap: 2.9rem;
   align-items: center;
 }
-
 .minus {
-  border: 1px solid hsl(45, 100%, 99%);
+  border: 1px solid var(--Rose-50);
   padding-block: 0.4rem;
-  padding-inline: 0.2rem;
+  padding-inline: 0.15rem;
   border-radius: 50%;
 }
 
 .plus {
-  border: 1px solid hsl(45, 100%, 99%);
+  border: 1px solid var(--Rose-50);
   border-radius: 50%;
   padding: 0.2rem;
 }
 
 :is(.plus, .minus):hover {
   cursor: pointer;
+  background-color: var(--Rose-50);
+}
+
+:is(.plus, .minus):hover > svg > path {
+  fill: var(--Red);
 }
 
 .add-cart-container:hover {
