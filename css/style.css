@@ -98,6 +98,11 @@ picture > img {
   gap: 2.9rem;
   align-items: center;
 }
+
+/* span[data-total-items]::before {
+  content: "(" attr(data-total-items) ")";
+} */
+
 .minus {
   border: 1px solid var(--Rose-50);
   padding-block: 0.4rem;

@@ -3,8 +3,7 @@ const dataResponse = await fetch("http://127.0.0.1:5500/data.json"); // for quok
 const data = await dataResponse.json();
 const plusBtns = document.querySelectorAll(".plus");
 const minusBtns = document.querySelectorAll(".minus");
-
-// console.log(data);
+const totalItemsInCart = document.querySelector("span[data-total-items");
 
 const updateAmount = (e) => {
   const amount = e.currentTarget.parentElement.querySelector(".amount");
@@ -14,6 +13,20 @@ const updateAmount = (e) => {
     updatedAmount = 1;
   }
   amount.textContent = updatedAmount;
+  updateItemsInCart(newVal);
+};
+
+const updateItemsInCart = (val) => {
+  const oldAmount = parseInt(totalItemsInCart.getAttribute("data-total-items"));
+  console.log(val + oldAmount ?? 0);
+  totalItemsInCart.setAttribute(
+    "data-total-items",
+    oldAmount + val > 0 ? oldAmount + val : 0
+  );
+
+  totalItemsInCart.textContent = `(${totalItemsInCart.getAttribute(
+    "data-total-items"
+  )})`;
 };
 
 for (const plusBtn of plusBtns) {
