@@ -7,20 +7,33 @@ const minusBtns = document.querySelectorAll(".minus");
 const totalItemsInCart = document.querySelector("span[data-total-items");
 const cartMessage = document.querySelector(".cart-message");
 const orderListDiv = document.querySelector(".order-list-container");
+const removeItemBtns = document.querySelectorAll(".remove-item-btn");
 
 console.log(data);
 // console.log(orderListDiv.textContent);
 
 const changeAddCartBtn = (e) => {
-  let firstItem = true;
+  const itemQuantity = parseInt(e.currentTarget.value);
+  // let firstItem = true;
   const AddItemBtn =
     e.currentTarget.parentElement.querySelector(".add-cart-counter");
 
   e.currentTarget.classList.toggle("hide");
 
   AddItemBtn.classList.toggle("hide");
-  updateItemsInCart(1);
-  changeCartView(firstItem);
+
+  // console.log(e.currentTarget.value);
+  updateItemsInCart(itemQuantity);
+  changeCartView(itemQuantity);
+};
+
+const removeItem = (e) => {
+  const itemQuantity = parseInt(e.currentTarget.value);
+  const oldAmount = parseInt(totalItemsInCart.getAttribute("data-total-items"));
+
+  updateItemsInCart(itemQuantity);
+  console.log(oldAmount + itemQuantity);
+  changeCartView(oldAmount + itemQuantity);
 };
 
 const changeCartView = (firstItem) => {
@@ -42,10 +55,10 @@ const updateAmount = (e) => {
 
 const updateItemsInCart = (val) => {
   const oldAmount = parseInt(totalItemsInCart.getAttribute("data-total-items"));
-  // console.log(val + oldAmount ?? 0);
+  // console.log(val);
   totalItemsInCart.setAttribute(
     "data-total-items",
-    oldAmount + val > 0 ? oldAmount + val : 1
+    oldAmount + val > 0 ? oldAmount + val : 0
   );
 
   totalItemsInCart.textContent = `(${totalItemsInCart.getAttribute(
@@ -62,4 +75,8 @@ for (const minusBtn of minusBtns) {
 
 for (const addToCartBtn of addToCartBtns) {
   addToCartBtn.addEventListener("click", changeAddCartBtn);
+}
+
+for (const removeItemBtn of removeItemBtns) {
+  removeItemBtn.addEventListener("click", removeItem);
 }
