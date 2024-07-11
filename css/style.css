@@ -34,7 +34,6 @@ body {
   min-height: 100vh;
   min-height: 100svh;
   display: grid;
-  /* place-content: center; */
   background-color: var(--Rose-100);
 }
 
@@ -44,10 +43,11 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-block: clamp(1.1rem, -0.3437rem + 6.1596vi, 5.2rem);
   /* Mobile */
   /* padding-block: 1.1rem; */
   /* Desktop */
-  padding-block: 5.2rem;
+  /* padding-block: 5.2rem; */
 }
 
 picture > img {
@@ -89,14 +89,11 @@ div:has(.cards) {
 }
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20.5rem, max-content));
+  /* grid-template-columns: repeat(auto-fit, minmax(20.5rem, max-content)); */
+  grid-template-columns: repeat(auto-fit, minmax(15.7rem, 20.5rem));
   grid-auto-rows: auto;
   gap: 1.4rem;
   height: max-content;
-  /* justify-content: center; */
-  /* width: max-content; */
-  /* width: min-content; */
-  /* padding-inline: 1rem; */
 }
 
 .card {
@@ -105,7 +102,8 @@ div:has(.cards) {
   /* Mobile */
   /* inline-size: 20.5rem; */
   /* Desktop */
-  inline-size: 15.7rem;
+  /* inline-size: 15.7rem; */
+  inline-size: clamp(15.7rem, 22.1901rem + -7.2113vi, 20.5rem);
 }
 .category {
   color: var(--Rose-300);
@@ -141,6 +139,10 @@ div:has(.cards) {
 
   background-color: hsl(0, 0%, 100%);
 
+  margin-block-start: clamp(0.2rem, 2.2282rem + -2.2535vi, 1.7rem);
+  margin-inline-end: clamp(0rem, -2.2887rem + 9.7653vi, 6.5rem);
+  inline-size: clamp(20.5rem, 19.2676rem + 5.2582vi, 24rem);
+  padding-block: 1.5rem clamp(2.1rem, 1.9592rem + 0.6009vi, 2.5rem);
   /* Mobile */
   /* border-radius: 0.5rem; */
   /* margin-block-start: 1.7rem; */
@@ -149,11 +151,11 @@ div:has(.cards) {
   /* padding-block: 1.5rem 2.1rem; */
   /* Desktop */
   border-radius: 0.5rem;
-  margin-block-start: 0.2rem;
-  margin-inline-end: 6.5rem;
-  inline-size: 24rem;
+  /* margin-block-start: 0.2rem; */
+  /* margin-inline-end: 6.5rem; */
+  /* inline-size: 24rem; */
   padding-inline: 1.5rem;
-  padding-block: 1.5rem 2.5rem;
+  /* padding-block: 1.5rem 2.5rem; */
 }
 .cart-container > img {
   align-self: center;
