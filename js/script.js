@@ -15,6 +15,7 @@ console.log(data);
 const changeAddCartBtn = (e) => {
   const itemQuantity = parseInt(e.currentTarget.value);
   // let firstItem = true;
+  // changeBtn(e);
   const AddItemBtn =
     e.currentTarget.parentElement.querySelector(".add-cart-counter");
 
@@ -27,12 +28,21 @@ const changeAddCartBtn = (e) => {
   changeCartView(itemQuantity);
 };
 
+const changeBtn = (e) => {
+  const addItemBtn = e.currentTarget.parentElement;
+
+  const addToCart = addItemBtn.previousElementSibling;
+
+  addToCart.classList.toggle("hide");
+  addItemBtn.classList.toggle("hide");
+};
+
 const removeItem = (e) => {
   const itemQuantity = parseInt(e.currentTarget.value);
   const oldAmount = parseInt(totalItemsInCart.getAttribute("data-total-items"));
 
   updateItemsInCart(itemQuantity);
-  console.log(oldAmount + itemQuantity);
+  // console.log(oldAmount + itemQuantity);
   changeCartView(oldAmount + itemQuantity);
 };
 
@@ -47,7 +57,8 @@ const updateAmount = (e) => {
   let updatedAmount = parseInt(amount.textContent) + newVal;
   if (updatedAmount <= 0) {
     updatedAmount = 1;
-    newVal = 0;
+    newVal = -1;
+    changeBtn(e);
   }
   amount.textContent = updatedAmount;
   updateItemsInCart(newVal);
@@ -71,6 +82,7 @@ for (const plusBtn of plusBtns) {
 }
 for (const minusBtn of minusBtns) {
   minusBtn.addEventListener("click", updateAmount);
+  // minusBtn.addEventListener("click", changeBtn);
 }
 
 for (const addToCartBtn of addToCartBtns) {
