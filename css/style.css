@@ -94,9 +94,7 @@ picture > img {
   gap: 2.9rem;
   align-items: center;
 }
-.hide {
-  display: none;
-}
+
 /* span[data-total-items]::before {
   content: "(" attr(data-total-items) ")";
 } */
@@ -189,7 +187,7 @@ div:has(.cards) {
 
   padding-inline: 1.5rem;
 }
-.cart-container > img {
+.cart-message > img {
   align-self: center;
   padding-block-end: 1rem;
   padding-block-start: 2.3rem;
@@ -203,6 +201,8 @@ div:has(.cards) {
 .cart-message {
   color: var(--Rose-500);
   font-size: 0.83rem;
+  display: flex;
+  flex-direction: column;
   align-self: center;
 }
 .carbon-container {
@@ -302,6 +302,10 @@ div:has(.cards) {
 }
 ul > li {
   list-style: none;
+}
+
+.hide {
+  display: none;
 }
 @media (min-width: 50rem) {
   main {
