@@ -244,6 +244,14 @@ div:has(.cards) {
 .order-total-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.order-total-container > p {
+  font-size: 0.85rem;
+  color: var(--Rose-500);
+}
+.order-total-container > h3 {
+  font-size: 1.5rem;
 }
 .list-item {
   display: flex;
