@@ -88,6 +88,40 @@ const addListItem = (name) => {
   const itemTitleText = document.createTextNode(`${name}`);
   itemTitleP.appendChild(itemTitleText);
   itemInfoDiv.append(itemTitleP);
+
+  const itemPricesDiv = document.createElement("div");
+  itemPricesDiv.classList.add("item-prices");
+  itemInfoDiv.appendChild(itemPricesDiv);
+
+  // "item-quantity red-hat-text-700",
+  // "item-price red-hat-text-600",
+  // "item-total-price red-hat-text-700",
+
+  const quanityPara = document.createElement("p");
+  const quanityParaText = document.createTextNode(
+    `${orderListObj[name].quanity}x`
+  );
+  quanityPara.setAttribute("class", "item-quantity red-hat-text-700");
+  quanityPara.appendChild(quanityParaText);
+
+  const pricePara = document.createElement("p");
+  const priceParaText = document.createTextNode(
+    `@ $${orderListObj[name].price.toFixed(2)}`
+  );
+  pricePara.setAttribute("class", "item-price red-hat-text-600");
+  pricePara.appendChild(priceParaText);
+
+  const totalPricePara = document.createElement("p");
+  const totalPriceParaText = document.createTextNode(
+    `$${orderListObj[name].total.toFixed(2)}`
+  );
+  totalPricePara.setAttribute("class", "item-total-price red-hat-text-700");
+  totalPricePara.appendChild(totalPriceParaText);
+
+  itemPricesDiv.appendChild(quanityPara);
+  itemPricesDiv.appendChild(pricePara);
+  itemPricesDiv.appendChild(totalPricePara);
+
   // console.log(liEle);
 };
 
