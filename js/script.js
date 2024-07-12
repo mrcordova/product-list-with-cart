@@ -34,6 +34,9 @@ const changeAddCartBtn = (e) => {
   orderListObj[name].quanity += 1;
   orderListObj[name].total += orderListObj[name].price;
 
+  // add item to orderList
+  addListItem(name);
+
   const AddItemBtn =
     e.currentTarget.parentElement.querySelector(".add-cart-counter");
 
@@ -43,6 +46,49 @@ const changeAddCartBtn = (e) => {
 
   updateItemsInCart(itemQuantity);
   changeCartView(itemQuantity);
+};
+
+const addListItem = (name) => {
+  // <li class="list-item">
+  //   <div class="item-info">
+  //     <p class="item-title red-hat-text-600">Classic Tiramisu</p>
+  //     <div class="item-prices">
+  //       <p class="item-quantity red-hat-text-700">1x</p>
+  //       <p class="item-price red-hat-text-600">@ $5.50</p>
+  //       <p class="item-total-price red-hat-text-700">$5.50</p>
+  //     </div>
+  //   </div>
+  //   <button class="remove-item-btn" value="-1">
+  //     <svg
+  //       xmlns="http://www.w3.org/2000/svg"
+  //       width="10"
+  //       height="10"
+  //       fill="none"
+  //       viewBox="0.5 0 10 10">
+  //       <path
+  //         fill="#CAAFA7"
+  //         d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
+  //       />
+  //     </svg>
+  //   </button>
+  // </li>;
+
+  const orderList = document.querySelector(".order-list");
+
+  const liEle = document.createElement("li");
+  liEle.classList.add("list-item");
+  orderList.appendChild(liEle);
+
+  const itemInfoDiv = document.createElement("div");
+  itemInfoDiv.classList.add("item-info");
+  liEle.appendChild(itemInfoDiv);
+
+  const itemTitleP = document.createElement("p");
+  itemTitleP.setAttribute("class", "item-title red-hat-text-600");
+  const itemTitleText = document.createTextNode(`${name}`);
+  itemTitleP.appendChild(itemTitleText);
+  itemInfoDiv.append(itemTitleP);
+  // console.log(liEle);
 };
 
 const changeBtn = (e) => {
