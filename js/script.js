@@ -37,12 +37,13 @@ const changeAddCartBtn = (e) => {
   orderListObj[name].total += orderListObj[name].price;
 
   // add item to orderList
-  addListItem(name);
+  const orderListEle = addListItem(name);
 
-  const orderItems = document.querySelectorAll(".item-title");
-  const orderItem = [...orderItems].find((e) => e.textContent.trim() === name);
+  orderListObj[name].ele = orderListEle;
+  // const orderItems = document.querySelectorAll(".item-title");
+  // const orderItem = [...orderItems].find((e) => e.textContent.trim() === name);
 
-  orderListObj[name].ele = orderItem.parentElement;
+  // orderListObj[name].ele = orderItem.parentElement;
 
   console.log(orderListObj[name]);
   const AddItemBtn =
@@ -124,6 +125,8 @@ const addListItem = (name) => {
   liEle.appendChild(removeItemBtn);
 
   removeItemBtn.addEventListener("click", removeItem);
+
+  return itemInfoDiv;
 };
 
 const changeBtn = (e) => {
