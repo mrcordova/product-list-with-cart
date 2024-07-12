@@ -33,9 +33,10 @@ const changeAddCartBtn = (e) => {
 
   // update order list obj
   const name = card.querySelector(".card-title").textContent.trim();
-  orderListObj[name].quanity += 1;
-  orderListObj[name].total += orderListObj[name].price;
+  orderListObj[name].quanity = 1;
+  orderListObj[name].total = orderListObj[name].price;
 
+  console.log(orderListObj[name].quanity);
   // add item to orderList
   const orderListEle = addListItem(name);
 
@@ -129,9 +130,11 @@ const addListItem = (name) => {
   return itemInfoDiv;
 };
 
-const changeBtn = (e) => {
-  const addItemBtn = e.currentTarget.parentElement;
+const changeBtn = (ele) => {
+  const addItemBtn = ele;
   const addToCart = addItemBtn.previousElementSibling;
+
+  // console.log(addItemBtn);
 
   // add item selected border
   const img = addToCart.previousElementSibling;
@@ -152,8 +155,15 @@ const removeItem = (e) => {
 
   changeCartView(oldAmount - itemQuantity > 0 ? true : false);
 
+  const cardTitleEles = document.querySelectorAll(".card-title");
+  const cardTitleEle = [...cardTitleEles].find(
+    (e) => e.textContent.trim() === name
+  );
+
+  changeBtn(cardTitleEle.parentElement.querySelector(".add-cart-counter"));
+
   // remove item here and update order list
-  orderListObj[name] = null;
+  orderListObj[name].ele = null;
   e.currentTarget.parentElement.remove();
 };
 
@@ -179,7 +189,7 @@ const updateAmount = (e) => {
   if (updatedAmount <= 0) {
     updatedAmount = 1;
     newVal = -1;
-    changeBtn(e);
+    changeBtn(e.currentTarget.parentElement);
     changeCartView(
       parseInt(totalItemsInCart.getAttribute("data-total-items")) + newVal
     );
@@ -220,7 +230,3 @@ for (const minusBtn of minusBtns) {
 for (const addToCartBtn of addToCartBtns) {
   addToCartBtn.addEventListener("click", changeAddCartBtn);
 }
-
-// for (const removeItemBtn of removeItemBtns) {
-//   removeItemBtn.addEventListener("click", removeItem);
-// }
