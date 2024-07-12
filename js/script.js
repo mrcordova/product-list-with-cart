@@ -49,30 +49,6 @@ const changeAddCartBtn = (e) => {
 };
 
 const addListItem = (name) => {
-  // <li class="list-item">
-  //   <div class="item-info">
-  //     <p class="item-title red-hat-text-600">Classic Tiramisu</p>
-  //     <div class="item-prices">
-  //       <p class="item-quantity red-hat-text-700">1x</p>
-  //       <p class="item-price red-hat-text-600">@ $5.50</p>
-  //       <p class="item-total-price red-hat-text-700">$5.50</p>
-  //     </div>
-  //   </div>
-  //   <button class="remove-item-btn" value="-1">
-  //     <svg
-  //       xmlns="http://www.w3.org/2000/svg"
-  //       width="10"
-  //       height="10"
-  //       fill="none"
-  //       viewBox="0.5 0 10 10">
-  //       <path
-  //         fill="#CAAFA7"
-  //         d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
-  //       />
-  //     </svg>
-  //   </button>
-  // </li>;
-
   const orderList = document.querySelector(".order-list");
 
   const liEle = document.createElement("li");
@@ -92,10 +68,6 @@ const addListItem = (name) => {
   const itemPricesDiv = document.createElement("div");
   itemPricesDiv.classList.add("item-prices");
   itemInfoDiv.appendChild(itemPricesDiv);
-
-  // "item-quantity red-hat-text-700",
-  // "item-price red-hat-text-600",
-  // "item-total-price red-hat-text-700",
 
   const quanityPara = document.createElement("p");
   const quanityParaText = document.createTextNode(
@@ -122,7 +94,47 @@ const addListItem = (name) => {
   itemPricesDiv.appendChild(pricePara);
   itemPricesDiv.appendChild(totalPricePara);
 
-  // console.log(liEle);
+  // <li class="list-item">
+  //
+  //   <button class="remove-item-btn" value="-1">
+  //     <svg
+  //       xmlns="http://www.w3.org/2000/svg"
+  //       width="10"
+  //       height="10"
+  //       fill="none"
+  //       viewBox="0.5 0 10 10">
+  //       <path
+  //         fill="#CAAFA7"
+  //         d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
+  //       />
+  //     </svg>
+  //   </button>
+  // </li>;
+  const removeItemBtn = document.createElement("button");
+  removeItemBtn.setAttribute("class", "remove-item-btn");
+  removeItemBtn.setAttribute("value", -1);
+
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  // svg.setAttribute("xmlns", );
+  //       width="10"
+  //       height="10"
+  //       fill="none"
+  //       viewBox="0.5 0 10 10"')
+  svg.setAttributeNS(null, "width", "10");
+  svg.setAttributeNS(null, "height", "10");
+  svg.setAttributeNS(null, "fill", "none");
+  svg.setAttributeNS(null, "viewBox", "0.5 0 10 10");
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttributeNS(null, "fill", "#CAAFA7");
+  path.setAttributeNS(
+    null,
+    "d",
+    "M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
+  );
+  svg.appendChild(path);
+  removeItemBtn.appendChild(svg);
+
+  liEle.appendChild(removeItemBtn);
 };
 
 const changeBtn = (e) => {
