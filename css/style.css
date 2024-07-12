@@ -55,7 +55,7 @@ picture > img {
 
 .selected-item {
   border: 2px solid var(--Red);
-  border-radius: 0.5rem;
+  border-radius: 0.65rem;
 }
 .add-cart-container {
   background-color: var(--Rose-50);
