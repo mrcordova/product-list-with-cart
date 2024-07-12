@@ -45,7 +45,7 @@ const changeAddCartBtn = (e) => {
 
   // orderListObj[name].ele = orderItem.parentElement;
 
-  console.log(orderListObj[name]);
+  // console.log(orderListObj[name]);
   const AddItemBtn =
     e.currentTarget.parentElement.querySelector(".add-cart-counter");
 
@@ -178,6 +178,15 @@ const updateAmount = (e) => {
     );
   }
   amount.textContent = updatedAmount;
+
+  // updating item on the orderList
+  orderListObj[name].ele.querySelector(
+    ".item-quantity"
+  ).textContent = `${updatedAmount}x`;
+  orderListObj[name].ele.querySelector(
+    ".item-total-price"
+  ).textContent = `$${orderListObj[name].total.toFixed(2)}`;
+
   updateItemsInCart(newVal);
 };
 
