@@ -7,6 +7,7 @@ const minusBtns = document.querySelectorAll(".minus");
 const totalItemsInCart = document.querySelector("span[data-total-items");
 const cartMessage = document.querySelector(".cart-message");
 const orderListDiv = document.querySelector(".order-list-container");
+const orderListUl = orderListDiv.querySelector(".order-list");
 // const removeItemBtns = document.querySelectorAll(".remove-item-btn");
 
 const orderListObj = {};
@@ -17,6 +18,7 @@ for (const obj of data) {
     category: obj["category"],
     quanity: 0,
     total: 0,
+    ele: null,
   };
 }
 // console.log(orderListObj);
@@ -37,6 +39,12 @@ const changeAddCartBtn = (e) => {
   // add item to orderList
   addListItem(name);
 
+  const orderItems = document.querySelectorAll(".item-title");
+  const orderItem = [...orderItems].find((e) => e.textContent.trim() === name);
+
+  orderListObj[name].ele = orderItem.parentElement;
+
+  console.log(orderListObj[name]);
   const AddItemBtn =
     e.currentTarget.parentElement.querySelector(".add-cart-counter");
 
@@ -49,11 +57,11 @@ const changeAddCartBtn = (e) => {
 };
 
 const addListItem = (name) => {
-  const orderList = document.querySelector(".order-list");
+  const orderListUl = document.querySelector(".order-list");
 
   const liEle = document.createElement("li");
   liEle.classList.add("list-item");
-  orderList.appendChild(liEle);
+  orderListUl.appendChild(liEle);
 
   const itemInfoDiv = document.createElement("div");
   itemInfoDiv.classList.add("item-info");
@@ -157,6 +165,7 @@ const updateAmount = (e) => {
   orderListObj[name].quanity += newVal;
   orderListObj[name].total += newVal * orderListObj[name].price;
 
+  // console.log(orderListUl);
   if (updatedAmount <= 0) {
     updatedAmount = 1;
     newVal = -1;
