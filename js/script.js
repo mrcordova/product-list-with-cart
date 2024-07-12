@@ -24,9 +24,10 @@ const changeAddCartBtn = (e) => {
   const itemQuantity = parseInt(e.currentTarget.value);
 
   const card = e.currentTarget.parentElement.parentElement;
-  const name = card.querySelector(".card-title");
-  orderListObj[name.textContent].quanity += 1;
-  orderListObj[name.textContent].total += orderListObj[name.textContent].price;
+  const name = card.querySelector(".card-title").textContent.trim();
+
+  orderListObj[name].quanity += 1;
+  orderListObj[name].total += orderListObj[name].price;
 
   const AddItemBtn =
     e.currentTarget.parentElement.querySelector(".add-cart-counter");
