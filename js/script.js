@@ -7,7 +7,7 @@ const minusBtns = document.querySelectorAll(".minus");
 const totalItemsInCart = document.querySelector("span[data-total-items");
 const cartMessage = document.querySelector(".cart-message");
 const orderListDiv = document.querySelector(".order-list-container");
-const removeItemBtns = document.querySelectorAll(".remove-item-btn");
+// const removeItemBtns = document.querySelectorAll(".remove-item-btn");
 
 const orderListObj = {};
 for (const obj of data) {
@@ -135,6 +135,8 @@ const addListItem = (name) => {
   removeItemBtn.appendChild(svg);
 
   liEle.appendChild(removeItemBtn);
+
+  removeItemBtn.addEventListener("click", removeItem);
 };
 
 const changeBtn = (e) => {
@@ -212,6 +214,6 @@ for (const addToCartBtn of addToCartBtns) {
   addToCartBtn.addEventListener("click", changeAddCartBtn);
 }
 
-for (const removeItemBtn of removeItemBtns) {
-  removeItemBtn.addEventListener("click", removeItem);
-}
+// for (const removeItemBtn of removeItemBtns) {
+//   removeItemBtn.addEventListener("click", removeItem);
+// }
