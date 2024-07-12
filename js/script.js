@@ -36,7 +36,6 @@ const changeAddCartBtn = (e) => {
   orderListObj[name].quanity = 1;
   orderListObj[name].total = orderListObj[name].price;
 
-  console.log(orderListObj[name].quanity);
   // add item to orderList
   const orderListEle = addListItem(name);
 
@@ -159,12 +158,20 @@ const removeItem = (e) => {
   const cardTitleEle = [...cardTitleEles].find(
     (e) => e.textContent.trim() === name
   );
+  const addCartCounter =
+    cardTitleEle.parentElement.querySelector(".add-cart-counter");
+  const amount = addCartCounter.querySelector(".amount");
+  changeBtn(addCartCounter);
 
-  changeBtn(cardTitleEle.parentElement.querySelector(".add-cart-counter"));
+  // update counter and reset object
+  amount.textContent = 1;
+
+  orderListObj[name].quanity = 0;
+  orderListObj[name].total = 0;
 
   // remove item here and update order list
+  orderListObj[name].ele.parentElement.remove();
   orderListObj[name].ele = null;
-  e.currentTarget.parentElement.remove();
 };
 
 const changeCartView = (firstItem) => {
@@ -193,6 +200,7 @@ const updateAmount = (e) => {
     changeCartView(
       parseInt(totalItemsInCart.getAttribute("data-total-items")) + newVal
     );
+    orderListObj[name].ele.parentElement.remove();
   }
   amount.textContent = updatedAmount;
 
