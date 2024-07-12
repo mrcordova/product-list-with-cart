@@ -71,8 +71,16 @@ const changeCartView = (firstItem) => {
 const updateAmount = (e) => {
   const amount = e.currentTarget.parentElement.querySelector(".amount");
 
+  const name = e.currentTarget.parentElement.parentElement.parentElement
+    .querySelector(".card-title")
+    .textContent.trim();
+
   let newVal = parseInt(e.currentTarget.getAttribute("data-amount"));
   let updatedAmount = parseInt(amount.textContent) + newVal;
+
+  orderListObj[name].quanity += newVal;
+  orderListObj[name].total += newVal * orderListObj[name].price;
+
   if (updatedAmount <= 0) {
     updatedAmount = 1;
     newVal = -1;
@@ -83,6 +91,8 @@ const updateAmount = (e) => {
   }
   amount.textContent = updatedAmount;
   updateItemsInCart(newVal);
+
+  console.log(orderListObj[name]);
 };
 
 const updateItemsInCart = (val) => {
