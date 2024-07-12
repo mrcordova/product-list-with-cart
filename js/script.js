@@ -9,8 +9,20 @@ const cartMessage = document.querySelector(".cart-message");
 const orderListDiv = document.querySelector(".order-list-container");
 const removeItemBtns = document.querySelectorAll(".remove-item-btn");
 
-console.log(data);
-// console.log(orderListDiv.textContent);
+// console.log(data);
+const orderListObj = {};
+for (const obj of data) {
+  orderListObj[obj["name"]] = {
+    price: obj["price"],
+    image: obj["image"],
+    category: obj["category"],
+    quanity: 0,
+    total: 0,
+  };
+  // console.log(obj);
+}
+
+console.log(orderListObj);
 
 const changeAddCartBtn = (e) => {
   const itemQuantity = parseInt(e.currentTarget.value);
