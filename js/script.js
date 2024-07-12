@@ -94,32 +94,11 @@ const addListItem = (name) => {
   itemPricesDiv.appendChild(pricePara);
   itemPricesDiv.appendChild(totalPricePara);
 
-  // <li class="list-item">
-  //
-  //   <button class="remove-item-btn" value="-1">
-  //     <svg
-  //       xmlns="http://www.w3.org/2000/svg"
-  //       width="10"
-  //       height="10"
-  //       fill="none"
-  //       viewBox="0.5 0 10 10">
-  //       <path
-  //         fill="#CAAFA7"
-  //         d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
-  //       />
-  //     </svg>
-  //   </button>
-  // </li>;
   const removeItemBtn = document.createElement("button");
   removeItemBtn.setAttribute("class", "remove-item-btn");
   removeItemBtn.setAttribute("value", -1);
 
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  // svg.setAttribute("xmlns", );
-  //       width="10"
-  //       height="10"
-  //       fill="none"
-  //       viewBox="0.5 0 10 10"')
   svg.setAttributeNS(null, "width", "10");
   svg.setAttributeNS(null, "height", "10");
   svg.setAttributeNS(null, "fill", "none");
