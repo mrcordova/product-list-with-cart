@@ -19,11 +19,15 @@ for (const obj of data) {
     total: 0,
   };
 }
-
+// console.log(orderListObj);
 const changeAddCartBtn = (e) => {
   const itemQuantity = parseInt(e.currentTarget.value);
-  // let firstItem = true;
-  // changeBtn(e);
+
+  const card = e.currentTarget.parentElement.parentElement;
+  const name = card.querySelector(".card-title");
+  orderListObj[name.textContent].quanity += 1;
+  orderListObj[name.textContent].total += orderListObj[name.textContent].price;
+
   const AddItemBtn =
     e.currentTarget.parentElement.querySelector(".add-cart-counter");
 
