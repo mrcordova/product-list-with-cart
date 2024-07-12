@@ -142,12 +142,19 @@ const changeBtn = (e) => {
 };
 
 const removeItem = (e) => {
-  const itemQuantity = parseInt(e.currentTarget.value);
+  // const itemQuantity = parseInt(e.currentTarget.value);
+  const name =
+    e.currentTarget.parentElement.querySelector(".item-title").textContent;
   const oldAmount = parseInt(totalItemsInCart.getAttribute("data-total-items"));
 
-  updateItemsInCart(itemQuantity);
+  const itemQuantity = orderListObj[name].quanity;
+  updateItemsInCart(-itemQuantity);
 
-  changeCartView(oldAmount + itemQuantity > 0 ? true : false);
+  changeCartView(oldAmount - itemQuantity > 0 ? true : false);
+
+  // remove item here and update order list
+  orderListObj[name] = null;
+  e.currentTarget.parentElement.remove();
 };
 
 const changeCartView = (firstItem) => {
