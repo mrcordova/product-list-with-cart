@@ -52,6 +52,11 @@ picture > img {
   object-fit: cover;
   border-radius: 0.5rem;
 }
+
+.selected-item {
+  border: 2px solid var(--Red);
+  border-radius: 0.5rem;
+}
 .add-cart-container {
   background-color: var(--Rose-50);
   border: 1px solid var(--Rose-500);

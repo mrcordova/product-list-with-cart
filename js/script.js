@@ -24,8 +24,13 @@ const changeAddCartBtn = (e) => {
   const itemQuantity = parseInt(e.currentTarget.value);
 
   const card = e.currentTarget.parentElement.parentElement;
-  const name = card.querySelector(".card-title").textContent.trim();
 
+  // add item selected border
+  const img = card.querySelector("picture");
+  img.classList.toggle("selected-item");
+
+  // update order list obj
+  const name = card.querySelector(".card-title").textContent.trim();
   orderListObj[name].quanity += 1;
   orderListObj[name].total += orderListObj[name].price;
 
@@ -36,7 +41,6 @@ const changeAddCartBtn = (e) => {
 
   AddItemBtn.classList.toggle("hide");
 
-  // console.log(e.currentTarget.value);
   updateItemsInCart(itemQuantity);
   changeCartView(itemQuantity);
 };
@@ -66,6 +70,7 @@ const changeCartView = (firstItem) => {
 
 const updateAmount = (e) => {
   const amount = e.currentTarget.parentElement.querySelector(".amount");
+
   let newVal = parseInt(e.currentTarget.getAttribute("data-amount"));
   let updatedAmount = parseInt(amount.textContent) + newVal;
   if (updatedAmount <= 0) {
