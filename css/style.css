@@ -353,10 +353,11 @@ div:has(.confirm-order-list) {
   padding-inline: 1rem;
   background-color: var(--Rose-100);
   border-radius: 0.5rem;
+  margin-block-end: 1rem;
 }
 .confirm-order-list {
-  overflow-y: auto;
-  scrollbar-width: none;
+  /* overflow-y: scroll; */
+  /* scrollbar-width: none; */
   /* scrollbar-gutter: auto; */
   border-radius: 0.3rem;
 }

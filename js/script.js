@@ -264,54 +264,61 @@ for (const addToCartBtn of addToCartBtns) {
 confirmBtn.addEventListener("click", () => {
   orderDialog.showModal();
 
-  const name = orderListUl.children[0].querySelector(".item-title").textContent;
-  const confirmItemLi = document.createElement("li");
-  confirmItemLi.classList.add("confirm-list-item");
+  for (const li of orderListUl.children) {
+    const name = li.querySelector(".item-title").textContent;
+    const confirmItemLi = document.createElement("li");
+    confirmItemLi.classList.add("confirm-list-item");
 
-  confirmOrderUl.appendChild(confirmItemLi);
-  const thumbnailImg = document.createElement("img");
-  thumbnailImg.setAttribute("class", "thumbnail");
-  thumbnailImg.setAttribute("src", orderListObj[name].image.thumbnail);
+    confirmOrderUl.appendChild(confirmItemLi);
+    const thumbnailImg = document.createElement("img");
+    thumbnailImg.setAttribute("class", "thumbnail");
+    thumbnailImg.setAttribute("src", orderListObj[name].image.thumbnail);
 
-  confirmItemLi.appendChild(thumbnailImg);
+    confirmItemLi.appendChild(thumbnailImg);
 
-  const itemInfoDiv = document.createElement("div");
-  itemInfoDiv.classList.add("confirm-item-info");
-  confirmItemLi.appendChild(itemInfoDiv);
+    const itemInfoDiv = document.createElement("div");
+    itemInfoDiv.classList.add("confirm-item-info");
+    confirmItemLi.appendChild(itemInfoDiv);
 
-  const itemTitleH3 = document.createElement("h3");
-  const itemTitleText = document.createTextNode(`${name}`);
-  itemTitleH3.appendChild(itemTitleText);
-  itemInfoDiv.appendChild(itemTitleH3);
+    const itemTitleH3 = document.createElement("h3");
+    const itemTitleText = document.createTextNode(`${name}`);
+    itemTitleH3.appendChild(itemTitleText);
+    itemInfoDiv.appendChild(itemTitleH3);
 
-  const confirmItemPriceDiv = document.createElement("div");
-  confirmItemPriceDiv.classList.add("confirm-item-price");
-  itemInfoDiv.appendChild(confirmItemPriceDiv);
+    const confirmItemPriceDiv = document.createElement("div");
+    confirmItemPriceDiv.classList.add("confirm-item-price");
+    itemInfoDiv.appendChild(confirmItemPriceDiv);
 
-  const quantityPara = document.createElement("p");
-  quantityPara.setAttribute("class", "item-quantity red-hat-text-700");
-  const quanityText = document.createTextNode(`${orderListObj[name].quanity}x`);
-  quantityPara.appendChild(quanityText);
-  confirmItemPriceDiv.appendChild(quantityPara);
+    const quantityPara = document.createElement("p");
+    quantityPara.setAttribute("class", "item-quantity red-hat-text-700");
+    const quanityText = document.createTextNode(
+      `${orderListObj[name].quanity}x`
+    );
+    quantityPara.appendChild(quanityText);
+    confirmItemPriceDiv.appendChild(quantityPara);
 
-  const itemPricePara = document.createElement("p");
-  itemPricePara.setAttribute("class", "item-price red-hat-text-700");
-  const priceText = document.createTextNode(
-    `@ ${orderListObj[name].price.toFixed(2)}`
-  );
-  itemPricePara.appendChild(priceText);
-  confirmItemPriceDiv.appendChild(itemPricePara);
+    const itemPricePara = document.createElement("p");
+    itemPricePara.setAttribute("class", "item-price red-hat-text-700");
+    const priceText = document.createTextNode(
+      `@ ${orderListObj[name].price.toFixed(2)}`
+    );
+    itemPricePara.appendChild(priceText);
+    confirmItemPriceDiv.appendChild(itemPricePara);
 
-  const totalItemPricePara = document.createElement("p");
-  totalItemPricePara.setAttribute(
-    "class",
-    "confirm-total-item-price red-hat-text-700"
-  );
-  const totalItemPriceText = document.createTextNode(
-    `$${orderListObj[name].total.toFixed(2)}`
-  );
-  totalItemPricePara.append(totalItemPriceText);
-  confirmItemLi.appendChild(totalItemPricePara);
+    const totalItemPricePara = document.createElement("p");
+    totalItemPricePara.setAttribute(
+      "class",
+      "confirm-total-item-price red-hat-text-700"
+    );
+    const totalItemPriceText = document.createTextNode(
+      `$${orderListObj[name].total.toFixed(2)}`
+    );
+    totalItemPricePara.append(totalItemPriceText);
+    confirmItemLi.appendChild(totalItemPricePara);
+  }
+  document.querySelector(
+    ".confirm-order-number"
+  ).textContent = `${orderTotal.textContent}`;
 });
 
 newOrderBtn.addEventListener("click", () => {
