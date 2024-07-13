@@ -519,32 +519,7 @@
           </p>
         </div>
         <div class="order-list-container hide">
-          <ul class="order-list">
-            <!-- Order item start -->
-            <!-- <li class="list-item">
-              <div class="item-info">
-                <p class="item-title red-hat-text-600">Classic Tiramisu</p>
-                <div class="item-prices">
-                  <p class="item-quantity red-hat-text-700">1x</p>
-                  <p class="item-price red-hat-text-600">@ $5.50</p>
-                  <p class="item-total-price red-hat-text-700">$5.50</p>
-                </div>
-              </div>
-              <button class="remove-item-btn" value="-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="10"
-                  height="10"
-                  fill="none"
-                  viewBox="0.5 0 10 10">
-                  <path
-                    fill="#CAAFA7"
-                    d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z" />
-                </svg>
-              </button>
-            </li> -->
-            <!-- order item end -->
-          </ul>
+          <ul class="order-list"></ul>
           <div class="order-total-container red-hat-text-600">
             <p>Order Total</p>
             <h3 id="order-total">$00.00</h3>
@@ -562,6 +537,23 @@
           <button class="confirm-btn red-hat-text-600">Confirm Order</button>
         </div>
       </div>
+      <dialog id="order-confirmation">
+        <img
+          src="./assets/images/icon-order-confirmed.svg"
+          alt="checkmark in circle" />
+        <h3>Order Confirmed</h3>
+        <p>We hope you enjoy your food!</p>
+        <div>
+          <ul>
+            <li>sjdflkasdj</li>
+          </ul>
+          <div>
+            <p>Order Total</p>
+            <h3>$00.00</h3>
+          </div>
+        </div>
+        <button class="confirm-btn red-hat-text-600">Start New Order</button>
+      </dialog>
     </main>
   </body>
 </html>

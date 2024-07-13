@@ -9,8 +9,9 @@ const cartMessage = document.querySelector(".cart-message");
 const orderListDiv = document.querySelector(".order-list-container");
 const orderListUl = orderListDiv.querySelector(".order-list");
 const orderTotal = document.getElementById("order-total");
-
-// const removeItemBtns = document.querySelectorAll(".remove-item-btn");
+const confirmBtn = orderListDiv.querySelector(".confirm-btn");
+const orderDialog = document.getElementById("order-confirmation");
+const newOrderBtn = orderDialog.querySelector(".confirm-btn");
 
 const orderListObj = {};
 for (const obj of data) {
@@ -176,7 +177,7 @@ const removeItem = (e) => {
   changeBtn(addCartCounter);
 
   //update order total
-  updateOrderTotal(-orderListObj[name].price);
+  updateOrderTotal(-orderListObj[name].price * orderListObj[name].quanity);
 
   // update counter and reset object
   amount.textContent = 1;
@@ -245,14 +246,28 @@ const updateItemsInCart = (val) => {
     "data-total-items"
   )})`;
 };
-
+const keyPress = (e) => {
+  if (e.key === "Enter") {
+    updateAmount(e);
+  }
+};
 for (const plusBtn of plusBtns) {
   plusBtn.addEventListener("click", updateAmount);
+  plusBtn.addEventListener("keypress", keyPress);
 }
 for (const minusBtn of minusBtns) {
   minusBtn.addEventListener("click", updateAmount);
+  minusBtn.addEventListener("keypress", keyPress);
 }
 
 for (const addToCartBtn of addToCartBtns) {
   addToCartBtn.addEventListener("click", changeAddCartBtn);
 }
+
+confirmBtn.addEventListener("click", () => {
+  orderDialog.showModal();
+});
+
+newOrderBtn.addEventListener("click", () => {
+  orderDialog.close();
+});
