@@ -329,33 +329,26 @@ newOrderBtn.addEventListener("click", () => {
   );
 
   for (const li of orderListUl.children) {
-    li.remove();
+    const name = li.querySelector(".item-title").textContent;
+    orderListObj[name].ele = null;
+    orderListObj[name].quanity = 0;
+    orderListObj[name].total = 0;
   }
-  for (const li of confirmOrderUl.children) {
-    li.remove();
-  }
+
+  orderListUl.replaceChildren();
+  confirmOrderUl.replaceChildren();
 
   orderTotal.textContent = `$00.00`;
   updateItemsInCart(-orderLength);
   changeCartView(false);
+
   const selectedItems = document.querySelectorAll(".selected-item");
 
   for (const selectedItem of selectedItems) {
     const imgContainer = selectedItem.parentElement;
     const addItemBtn = imgContainer.querySelector(".add-cart-counter");
+    const counter = addItemBtn.querySelector(".amount");
+    counter.textContent = "1";
     changeBtn(addItemBtn);
   }
-
-  //  const AddItemBtn =
-  //    e.currentTarget.parentElement.querySelector(".add-cart-counter");
-
-  //  e.currentTarget.classList.toggle("hide");
-
-  //  AddItemBtn.classList.toggle("hide");
-
-  // const card = e.currentTarget.parentElement.parentElement;
-
-  // // add item selected border
-  // const img = card.querySelector("picture");
-  // img.classList.toggle("selected-item");
 });
