@@ -328,7 +328,9 @@ ul > li {
   height: 100%;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+}
 
+#order-confirmation[open] {
   display: flex;
   flex-direction: column;
 }
@@ -367,15 +369,34 @@ div:has(.confirm-order-list) {
   justify-content: space-between;
 }
 
+.confirm-item-info > h3 {
+  font-size: 1rem;
+  color: var(--Rose-900);
+}
+
 .confirm-item-price {
   display: flex;
+  gap: 1rem;
 }
 .confirm-total-item-price {
   margin-inline-start: auto;
+  font-family: 2rem;
+  color: var(--Rose-900);
 }
 .confirm-order-total {
   display: flex;
   justify-content: space-between;
+  padding-block: 1rem;
+}
+
+.confirmation-main-head {
+  color: var(--Rose-900);
+  font-size: 3rem;
+}
+
+.confirmation-subhead {
+  font-size: 1.1rem;
+  color: var(--Rose-300);
 }
 #order-confirmation > .confirm-btn {
   margin-block-start: auto;
