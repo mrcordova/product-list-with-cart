@@ -244,7 +244,8 @@ div:has(.cards) {
   gap: 1.6rem;
   margin-block-start: 0.78rem;
 }
-.order-list {
+.order-list,
+ul {
   padding: 0;
 }
 
@@ -331,6 +332,35 @@ ul > li {
   background-color: hsl(from black h s l / 0.5);
 }
 
+.thumbnail {
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+.confirm-order-list {
+  background-color: var(--Rose-100);
+  padding: 1rem;
+  border-radius: 0.3rem;
+}
+.confirm-list-item {
+  display: flex;
+  align-items: center;
+}
+.confirm-item-info {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: space-between;
+}
+
+.confirm-item-price {
+  display: flex;
+}
+.confirm-total-item-price {
+  margin-inline-start: auto;
+}
+.confirm-order-total {
+  display: flex;
+}
 .hide {
   display: none;
 }
