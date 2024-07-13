@@ -323,4 +323,16 @@ confirmBtn.addEventListener("click", () => {
 
 newOrderBtn.addEventListener("click", () => {
   orderDialog.close();
+  const orderLength = orderListUl.children.length;
+
+  for (const li of orderListUl.children) {
+    li.remove();
+  }
+  for (const li of confirmOrderUl.children) {
+    li.remove();
+  }
+
+  orderTotal.textContent = `$00.00`;
+  updateItemsInCart(-orderLength);
+  changeCartView(false);
 });
