@@ -380,15 +380,20 @@ div:has(.confirm-order-list) {
 }
 .confirm-total-item-price {
   margin-inline-start: auto;
-  font-family: 2rem;
+  font-size: 1.15rem;
   color: var(--Rose-900);
 }
 .confirm-order-total {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding-block: 1rem;
+  color: var(--Rose-500);
 }
-
+.confirm-order-number {
+  font-size: 1.5rem;
+  color: var(--Rose-900);
+}
 .confirmation-main-head {
   color: var(--Rose-900);
   font-size: 3rem;
@@ -397,6 +402,7 @@ div:has(.confirm-order-list) {
 .confirmation-subhead {
   font-size: 1.1rem;
   color: var(--Rose-300);
+  padding-block: 0rem 1.5rem;
 }
 #order-confirmation > .confirm-btn {
   margin-block-start: auto;
