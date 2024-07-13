@@ -8,6 +8,8 @@ const totalItemsInCart = document.querySelector("span[data-total-items");
 const cartMessage = document.querySelector(".cart-message");
 const orderListDiv = document.querySelector(".order-list-container");
 const orderListUl = orderListDiv.querySelector(".order-list");
+const orderTotal = document.getElementById("order-total");
+
 // const removeItemBtns = document.querySelectorAll(".remove-item-btn");
 
 const orderListObj = {};
@@ -55,6 +57,16 @@ const changeAddCartBtn = (e) => {
 
   updateItemsInCart(itemQuantity);
   changeCartView(itemQuantity);
+
+  //update order total
+  updateOrderTotal(orderListObj[name].price);
+};
+
+const updateOrderTotal = (price) => {
+  //update order total
+  orderTotal.textContent = `$${(
+    parseFloat(orderTotal.textContent.slice(1)) + price
+  ).toFixed(2)}`;
 };
 
 const addListItem = (name) => {
@@ -163,6 +175,9 @@ const removeItem = (e) => {
   const amount = addCartCounter.querySelector(".amount");
   changeBtn(addCartCounter);
 
+  //update order total
+  updateOrderTotal(-orderListObj[name].price);
+
   // update counter and reset object
   amount.textContent = 1;
 
@@ -191,6 +206,10 @@ const updateAmount = (e) => {
     .textContent.trim();
   orderListObj[name].quanity += newVal;
   orderListObj[name].total += newVal * orderListObj[name].price;
+
+  //update order total
+  updateOrderTotal(newVal * orderListObj[name].price);
+  console.log(newVal * orderListObj[name].price, orderTotal.textContent);
 
   // console.log(orderListUl);
   if (updatedAmount <= 0) {
