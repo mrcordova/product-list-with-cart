@@ -328,12 +328,17 @@ ul > li {
   height: 100%;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
 }
 
 #order-confirmation::backdrop {
   background-color: hsl(from black h s l / 0.5);
 }
-
+#order-confirmation > img {
+  align-self: flex-start;
+}
 .thumbnail {
   object-fit: contain;
   border-radius: 0.5rem;
@@ -371,6 +376,9 @@ div:has(.confirm-order-list) {
 .confirm-order-total {
   display: flex;
   justify-content: space-between;
+}
+#order-confirmation > .confirm-btn {
+  margin-block-start: auto;
 }
 .hide {
   display: none;
