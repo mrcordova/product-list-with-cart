@@ -117,12 +117,12 @@ picture > img {
   padding: 0.2rem;
 }
 
-:is(.plus, .minus):hover {
+:is(.plus, .minus):is(:hover, :focus) {
   cursor: pointer;
   background-color: var(--Rose-50);
 }
 
-:is(.plus, .minus):hover > svg > path {
+:is(.plus, .minus):is(:hover, :focus) > svg > path {
   fill: var(--Red);
 }
 

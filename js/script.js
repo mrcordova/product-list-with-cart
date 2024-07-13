@@ -209,7 +209,6 @@ const updateAmount = (e) => {
 
   //update order total
   updateOrderTotal(newVal * orderListObj[name].price);
-  console.log(newVal * orderListObj[name].price, orderTotal.textContent);
 
   // console.log(orderListUl);
   if (updatedAmount <= 0) {
