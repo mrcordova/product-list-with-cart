@@ -1,5 +1,5 @@
 // const dataResponse = await fetch("http://127.0.0.1:5500/data.json"); // for quokka testing
-const dataResponse = await fetch("../data.json"); // for final live website
+const dataResponse = await fetch("data.json"); // for final live websitedata.json
 const data = await dataResponse.json();
 const addToCartBtns = document.querySelectorAll(".add-cart-container");
 const plusBtns = document.querySelectorAll(".plus");
