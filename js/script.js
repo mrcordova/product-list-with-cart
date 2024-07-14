@@ -24,7 +24,7 @@ for (const obj of data) {
     ele: null,
   };
 }
-// console.log(orderListObj);
+
 const changeAddCartBtn = (e) => {
   const itemQuantity = parseInt(e.currentTarget.value);
 
@@ -43,12 +43,7 @@ const changeAddCartBtn = (e) => {
   const orderListEle = addListItem(name);
 
   orderListObj[name].ele = orderListEle;
-  // const orderItems = document.querySelectorAll(".item-title");
-  // const orderItem = [...orderItems].find((e) => e.textContent.trim() === name);
 
-  // orderListObj[name].ele = orderItem.parentElement;
-
-  // console.log(orderListObj[name]);
   const AddItemBtn =
     e.currentTarget.parentElement.querySelector(".add-cart-counter");
 
@@ -154,7 +149,6 @@ const changeBtn = (ele) => {
 };
 
 const removeItem = (e) => {
-  // const itemQuantity = parseInt(e.currentTarget.value);
   const name =
     e.currentTarget.parentElement.querySelector(".item-title").textContent;
   const oldAmount = parseInt(totalItemsInCart.getAttribute("data-total-items"));
@@ -208,7 +202,6 @@ const updateAmount = (e) => {
   //update order total
   updateOrderTotal(newVal * orderListObj[name].price);
 
-  // console.log(orderListUl);
   if (updatedAmount <= 0) {
     updatedAmount = 1;
     newVal = -1;
@@ -233,7 +226,6 @@ const updateAmount = (e) => {
 
 const updateItemsInCart = (val) => {
   const oldAmount = parseInt(totalItemsInCart.getAttribute("data-total-items"));
-  // console.log(val);
   totalItemsInCart.setAttribute(
     "data-total-items",
     oldAmount + val > 0 ? oldAmount + val : 0
